@@ -3,7 +3,17 @@
 //class to run the app in console
 class consoleMenu
 {
-
+    displayToDos(arr)
+    {
+        for(let i =0;i<arr.length;i++)
+        {
+            console.log(arr[i]);
+        }
+    }
+    addtoarray(arr,toDoObject)
+    {   
+        arr.push(toDoObject);
+    }
 };
 //class to create reminders
 class todos
@@ -15,7 +25,7 @@ class todos
         this.due=due;
         this,priority=priority;
         this.notes=notes;
-        logger.info(`toDo Created with title {${this.title}} constructor definition at line 11`);
+        logix.info(`toDo Created with title {${this.title}} constructor definition at line 11`);
     }
 }
 //class to log messages or errors to the console
@@ -29,3 +39,7 @@ class logger
 
 }
 const logix = new logger();
+let todoArray = [];
+let menu = new consoleMenu();
+let newDo = menu.addtoarray(todoArray,new todos('App','todoApp','25',1,'nothing'));
+menu.displayToDos(todoArray);
