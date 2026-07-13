@@ -1,7 +1,7 @@
 // TO Do list using oop principles.
 
 //class to run the app in console
-class consoleMenu
+class main
 {
     displayToDos(arr)
     {
@@ -40,6 +40,6 @@ class logger
 }
 const logix = new logger();
 let todoArray = [];
-let menu = new consoleMenu();
+let menu = new main();
 let newDo = menu.addtoarray(todoArray,new todos('App','todoApp','25',1,'nothing'));
 menu.displayToDos(todoArray);
