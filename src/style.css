@@ -1,0 +1,28 @@
+*
+{
+    padding:0;
+    margin: 0;
+    box-sizing: border-box;
+}
+:root
+{
+    font-size: 62.5%;
+    --mainBackground : rgb(93, 193, 252);
+    --mainDark : rgb(3, 0, 158);
+}
+body
+{
+    background-color: var(--mainBackground,skyblue);
+
+}
+header
+{
+    height : 7vh;
+    background-color: var(--mainDark,blue);
+    font-size: 2rem;
+    color: var(--mainBackground,skyblue);
+    display: flex;
+    align-items: center;
+    padding : 0 5%;
+    font-weight: bolder;
+}

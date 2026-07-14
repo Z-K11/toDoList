@@ -1,6 +1,8 @@
 // TO Do list using oop principles.
 //import domProcessor from it's module
 import {domProcessor} from './dom.js';
+//Adding css to the project
+import './style.css';
 //class to run the app in console
 class main
 {
