@@ -1,22 +1,27 @@
 // TO Do list using oop principles.
-
+//import domProcessor from it's module
+import {domProcessor} from './dom.js';
 //class to run the app in console
 class main
 {
+    #mainStorage = [];
     constructor()
     {
-        this.mainStorage = [];
     }
     displayProjects()
     {
-        for(let i =0;i<this.mainStorage.length;i++)
+        for(let i =0;i<this.#mainStorage.length;i++)
         {
-            console.log(this.mainStorage[i]);
+            console.log(this.#mainStorage[i]);
         }
     }
     addProjectToArray(projectObject)
     {   
-        this.mainStorage.push(projectObject);
+        this.#mainStorage.push(projectObject);
+    }
+    getProjectByName(name)
+    {
+        return this.#mainStorage.find(project => project.name === name);
     }
 };
 //class to create projects that will contain the todos
@@ -26,11 +31,12 @@ class projects
     {
         this.name=name;
         this.projectArray = [];
+        logix.info(`New project created by the name :${this.name} definition at line 29`);
     }
     createTask(name,description,due,priority,notes)
     {
         this.projectArray.push(new todos(name,description,due,priority,notes));
-        logix.info(`createTask called on line 29`);
+        logix.info(`createTask called on line 34`);
     }
 }
 //class to create reminders
@@ -60,3 +66,4 @@ const logix = new logger();
 const runner = new main();
 runner.addProjectToArray(new projects('Default'));
 runner.displayProjects();
+const defaultProject = runner.getProjectByName('Default');
