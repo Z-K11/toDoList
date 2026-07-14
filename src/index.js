@@ -3,18 +3,36 @@
 //class to run the app in console
 class main
 {
-    displayToDos(arr)
+    constructor()
     {
-        for(let i =0;i<arr.length;i++)
+        this.mainStorage = [];
+    }
+    displayProjects()
+    {
+        for(let i =0;i<this.mainStorage.length;i++)
         {
-            console.log(arr[i]);
+            console.log(this.mainStorage[i]);
         }
     }
-    addtoarray(arr,toDoObject)
+    addProjectToArray(projectObject)
     {   
-        arr.push(toDoObject);
+        this.mainStorage.push(projectObject);
     }
 };
+//class to create projects that will contain the todos
+class projects
+{   
+    constructor(name)
+    {
+        this.name=name;
+        this.projectArray = [];
+    }
+    createTask(name,description,due,priority,notes)
+    {
+        this.projectArray.push(new todos(name,description,due,priority,notes));
+        logix.info(`createTask called on line 29`);
+    }
+}
 //class to create reminders
 class todos
 {
@@ -39,7 +57,6 @@ class logger
 
 }
 const logix = new logger();
-let todoArray = [];
-let menu = new main();
-let newDo = menu.addtoarray(todoArray,new todos('App','todoApp','25',1,'nothing'));
-menu.displayToDos(todoArray);
+const runner = new main();
+runner.addProjectToArray(new projects('Default'));
+runner.displayProjects();
