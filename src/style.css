@@ -52,10 +52,32 @@ header
     padding : 12% 17%;
     font-size: 2.6rem;
     color: var(--fontMainDark);
+    display: flex;
+    flex-direction: column;
 }
 .projects>ul
 {
     display: flex;
     flex-direction: column;
     gap:3rem;
+    flex : 1;
+}
+.projectCreator
+{
+    padding: 5% 20%;
+    background-color: var(--mainBackground);
+    border : 0.3rem solid var(--mainDark);
+    border-radius: 1rem;
+    font-size: 1.6rem;
+    color:var(--fontMain);
+    font-weight: bolder;
+}
+.createProject
+{
+    display: flex;
+    justify-content: center;
+}
+.projectCreator:hover
+{
+    color: var(--mainDark);
 }
