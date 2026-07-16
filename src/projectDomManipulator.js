@@ -80,5 +80,6 @@ export default class domManipulator
     removeElement(node)
     {
         document.getElementById(node).remove();
+        this.runner.removeProject(node);
     }
 }

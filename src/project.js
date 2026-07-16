@@ -7,7 +7,7 @@ export default class projects
     constructor(name)
     {
         this.name=name;
-        logix.info(`New project created by the name :${this.name} definition at line 37`);
+        logix.info(`New project created by the name :${this.name} definition in file src/project.js`);
     }
     //Function to create a todo task and append it to the end of array that contains all project tasks
     createTask(name,description,due,priority,notes)
