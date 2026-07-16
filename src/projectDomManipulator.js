@@ -51,7 +51,14 @@ export default class domManipulator
         const projectName = inputField.value;
         this.runner.addProjectToArray(new Projects(projectName));
         inputField.value='';
-
-
+        this.appendProjectToDom(this.runner.getProjectByName(projectName));
     }
+    appendProjectToDom(projectName)
+    {
+        const projectList = document.querySelector('#projectsList');
+        let listItem=document.createElement('li');
+        listItem.textContent=projectName.name;
+        projectList.appendChild(listItem);
+    }
+
 }
