@@ -3,12 +3,16 @@ import Projects from './project.js'
 export default class domManipulator
 {
     #count=0;
+    #projectList;
+    #inputField;
     constructor(main)
     {
         console.log('Dom Object succesfully created');
         this.runner = main;
         this.projectList = document.querySelector('.projectList');
         this.modal = document.querySelector('.modalOverlay');
+        this.#projectList = document.querySelector('#projectsList');
+        this.#inputField = document.querySelector('#nameOfProject');
         let createOptions = document.querySelector('.creatorOptions');
         createOptions.addEventListener('click',(e)=>
         {
@@ -42,23 +46,27 @@ export default class domManipulator
     hideModal()
     {
             this.modal.classList.add('hidden');
+            this.#inputField.value='';
     }
     submitProject()
     {
-        const inputField = document.querySelector('#nameOfProject');
-        const projectName = inputField.value;
+        const projectName = this.#inputField.value;
         this.runner.addProjectToArray(new Projects(projectName));
-        inputField.value='';
+        this.#inputField.value='';
         this.appendProjectToDom(this.runner.getProjectByName(projectName));
     }
     appendProjectToDom(projectName)
     {
-        const projectList = document.querySelector('#projectsList');
         let listItem=document.createElement('li');
-
         listItem.classList.add('protjectStyles');
-        listItem.textContent=projectName.name;
-        projectList.appendChild(listItem);
+        let namePara = document.createElement('p');
+        listItem.appendChild(namePara);
+        namePara.textContent=projectName.name;
+        let removeProjectButton = document.createElement('button');
+        removeProjectButton.id=projectName+'Remover';
+        removeProjectButton.classList.add('projectRemover');
+        listItem.appendChild(removeProjectButton);
+        this.#projectList.appendChild(listItem);
     }
 
 }
