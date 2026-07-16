@@ -11,7 +11,7 @@ export default class domManipulator
         const creatorButton = document.querySelector('.projectCreator');
         creatorButton.addEventListener('click',()=>
         {
-            this.runner.addProjectToArray(new Projects('Default'));
+            // this.runner.addProjectToArray(new Projects('Default'));
         })
     }
 }
