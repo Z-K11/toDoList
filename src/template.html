@@ -7,7 +7,7 @@
     <link rel="icon" href="data:,">
 </head>
 <body>
-    <div class="modalOverlay ">
+    <div class="modalOverlay hidden">
         <div class="modal">
             <h3 class="modalHeading">Create Project</h3>
             <div class="modalInputWrapper">
@@ -16,8 +16,8 @@
                     <input type="text" id="nameOfProject" name="projectName">
                 </div>
                 <div class="creatorOptions">
-                    <button class="submitProject modalButtons">Submit</button>
-                    <button class="cancel modalButtons">Cancel</button>
+                    <button id="submitProject"class=" modalButtons">Submit</button>
+                    <button id="cancel" class=" modalButtons">Cancel</button>
                 </div>
             </div>
         </div>

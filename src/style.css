@@ -150,6 +150,10 @@ header
     border : 0.5rem solid var(--fontDark);
     border-radius: 0.8rem;
 }
+.modalButtons:hover
+{
+    cursor: pointer;
+}
 .hidden
 {
     display: none;
