@@ -9,7 +9,7 @@
     font-size: 62.5%;
     --mainBackground : #8494FF;
     --mainDark : #6367FF;
-    --fontMainDark:#795eff;
+    --fontDark:#795eff;
     --mainLight:#C9BEFF;
 }
 body
@@ -25,7 +25,7 @@ header,footer
     height: 6vh;
     background-color: var(--mainDark,blue);
     font-size: 2rem;
-    color: var(--fontMain,skyblue);
+    color: var(--mainLight,rgb(0, 0, 0));
     
 }
 header
@@ -50,7 +50,7 @@ header
     background-color: var(--mainLight,lightpurple);
     padding : 12% 17%;
     font-size: 2.6rem;
-    color: var(--fontMainDark);
+    color: var(--mainLightDark);
     display: flex;
     flex-direction: column;
 }
@@ -68,7 +68,7 @@ header
     border : 0.3rem solid var(--mainDark);
     border-radius: 1rem;
     font-size: 1.6rem;
-    color:var(--fontMain);
+    color:var(--mainLight);
     font-weight: bolder;
 }
 .createProject
@@ -79,10 +79,6 @@ header
 .projectCreator:hover
 {
     color: var(--mainDark);
-}
-.hidden
-{
-    display: none;
 }
 .modalOverlay
 {
@@ -119,7 +115,7 @@ header
 }
 .modalInput
 {
-    color: var(--fontMainDark);
+    color: var(--mainLightDark);
     font-size: 2.4rem;
     padding: 10% 0;
     display: flex;
@@ -143,4 +139,24 @@ header
 {
     border: 0.2rem solid var(--mainDark);
     outline: none;
+}
+.modalButtons
+{
+    color: var(--mainLight);
+    background-color: var(--mainDark);
+    padding : 2% 10%;
+    font-weight: bolder;
+    font-size: 1.4rem;
+    border : 0.5rem solid var(--fontDark);
+    border-radius: 0.8rem;
+}
+.hidden
+{
+    display: none;
+}
+.creatorOptions
+{
+    display: flex;
+    justify-content: space-around;
+    padding-bottom: 10%;
 }
