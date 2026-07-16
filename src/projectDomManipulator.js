@@ -1,4 +1,5 @@
 import Projects from './project.js'
+// import main from './manager.js';
 export default class domManipulator
 {
     #count=0;
@@ -14,15 +15,17 @@ export default class domManipulator
             let target = e.target.id;
             if(target==='cancel')
             {
-                this.cancelButton()
+                this.hideModal();
+                this.#count--;
+            }
+            else if (target==='submitProject')
+            {
+                this.submitProject();
+                this.hideModal();
             }
         })
         
         
-    }
-    cancelButton()
-    {
-            this.modal.classList.add('hidden');
     }
     initializeProjectCreation()
     {
@@ -30,11 +33,25 @@ export default class domManipulator
         creatorButton.addEventListener('click',()=>
         {
             // this.runner.addProjectToArray(new Projects('Default'));
-            let projectDiv = document.createElement('div');
+            // let projectDiv = document.createElement('div');
             this.#count++;
-            projectDiv.id=`project_${this.#count}`;
             this.modal.classList.remove('hidden');
 
         })
+    }
+    hideModal()
+    {
+            this.modal.classList.add('hidden');
+    }
+    submitProject()
+    {
+        let projectDiv = document.createElement('div');
+        projectDiv.id=`project_${this.#count}`;
+        const inputField = document.querySelector('#nameOfProject');
+        const projectName = inputField.value;
+        this.runner.addProjectToArray(new Projects(projectName));
+        inputField.value='';
+
+
     }
 }
