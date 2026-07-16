@@ -26,7 +26,13 @@ export default class domManipulator
                 this.submitProject();
                 this.hideModal();
             }
-        })
+        });
+        this.#projectList.addEventListener('click',(e)=>
+        {
+            const id = e.target.id;
+
+        });
+
         
         
     }
@@ -57,12 +63,13 @@ export default class domManipulator
     appendProjectToDom(projectName)
     {
         let listItem=document.createElement('li');
+        listItem.id=projectName.name;
         listItem.classList.add('protjectStyles');
         let namePara = document.createElement('p');
         listItem.appendChild(namePara);
         namePara.textContent=projectName.name;
         let removeProjectButton = document.createElement('button');
-        removeProjectButton.id=projectName+'Remover';
+        removeProjectButton.id=projectName.name+'Remover';
         removeProjectButton.textContent='-';
         removeProjectButton.classList.add('projectRemover');
         listItem.appendChild(removeProjectButton);
