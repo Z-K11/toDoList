@@ -30,6 +30,8 @@ export default class domManipulator
         this.#projectList.addEventListener('click',(e)=>
         {
             const id = e.target.id;
+            const name = id.replace('Remover','');
+            this.removeElement(name);
 
         });
 
@@ -75,5 +77,8 @@ export default class domManipulator
         listItem.appendChild(removeProjectButton);
         this.#projectList.appendChild(listItem);
     }
-
+    removeElement(node)
+    {
+        document.getElementById(node).remove();
+    }
 }
