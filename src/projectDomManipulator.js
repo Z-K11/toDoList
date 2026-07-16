@@ -45,8 +45,6 @@ export default class domManipulator
     }
     submitProject()
     {
-        let projectDiv = document.createElement('div');
-        projectDiv.id=`project_${this.#count}`;
         const inputField = document.querySelector('#nameOfProject');
         const projectName = inputField.value;
         this.runner.addProjectToArray(new Projects(projectName));
@@ -57,6 +55,7 @@ export default class domManipulator
     {
         const projectList = document.querySelector('#projectsList');
         let listItem=document.createElement('li');
+
         listItem.classList.add('protjectStyles');
         listItem.textContent=projectName.name;
         projectList.appendChild(listItem);
