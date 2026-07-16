@@ -57,6 +57,7 @@ export default class domManipulator
     {
         const projectList = document.querySelector('#projectsList');
         let listItem=document.createElement('li');
+        listItem.classList.add('protjectStyles');
         listItem.textContent=projectName.name;
         projectList.appendChild(listItem);
     }
