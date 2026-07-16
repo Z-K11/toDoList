@@ -9,7 +9,6 @@ export default class domManipulator
     {
         console.log('Dom Object succesfully created');
         this.runner = main;
-        this.projectList = document.querySelector('.projectList');
         this.modal = document.querySelector('.modalOverlay');
         this.#projectList = document.querySelector('#projectsList');
         this.#inputField = document.querySelector('#nameOfProject');
@@ -64,6 +63,7 @@ export default class domManipulator
         namePara.textContent=projectName.name;
         let removeProjectButton = document.createElement('button');
         removeProjectButton.id=projectName+'Remover';
+        removeProjectButton.textContent='-';
         removeProjectButton.classList.add('projectRemover');
         listItem.appendChild(removeProjectButton);
         this.#projectList.appendChild(listItem);

@@ -168,4 +168,20 @@ header
 {
     color: var(--fontDark);
     list-style: none;
+    display: flex;
+    justify-content: space-between;
+}
+.projectRemover
+{
+    padding: 0 5%;
+    background-color: var(--mainBackground);
+    border-radius: 2rem;
+    border: 0.2rem solid var(--mainDark);
+    font-size: 2.2rem;
+    color: var(--fontDark);
+    font-weight: bolder;
+}
+.projectRemover:hover
+{
+    cursor: pointer;
 }
