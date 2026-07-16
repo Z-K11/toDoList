@@ -58,9 +58,12 @@ export default class domManipulator
     submitProject()
     {
         const projectName = this.#inputField.value;
-        this.runner.addProjectToArray(new Projects(projectName));
+        const check=this.runner.addProjectToArray(new Projects(projectName));
         this.#inputField.value='';
+        if(check)
+        {
         this.appendProjectToDom(this.runner.getProjectByName(projectName));
+        }
     }
     appendProjectToDom(projectName)
     {

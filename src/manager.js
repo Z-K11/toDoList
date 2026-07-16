@@ -25,12 +25,13 @@ export default class main
             this.#mainStorage.push(projectObject);
             this.#count++;
             logix.info('Project Created');
+            return true;
         }
         else
         {
             logix.error(`maximun number of projects reached ${this.#count}`);
+            return false;
         }
-        this.displayProjects();
     }
     //Searches the array for object using it's name
     getProjectByName(name)
@@ -45,6 +46,7 @@ export default class main
         {
             this.#mainStorage.splice(index,1);
             logix.info(`Project : ${name} removed`);
+            this.#count--;
         }
         this.displayProjects();
     }
