@@ -7,6 +7,22 @@
     <link rel="icon" href="data:,">
 </head>
 <body>
+    <div class="modalOverlay ">
+        <div class="modal">
+            <h3 class="modalHeading">Create Project</h3>
+            <div class="modalInputWrapper">
+                <div class="modalInput">
+                    <label for="nameOfProject">Name :</label>
+                    <input type="text" id="nameOfProject" name="projectName">
+                </div>
+                <div class="creatorOptions">
+                    <button class="submitProject modalButtons">Submit</button>
+                    <button class="cancel modalButtons">Cancel</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
     <header>
     <div class="header Heading">
         <h1>Task Managment Application</h1>
@@ -21,6 +37,7 @@
             </div>
         </div>
         <div class="tasks"></div>
+        <div class="toDoCreator"></div>
     </div>
     <footer></footer>
 </body>

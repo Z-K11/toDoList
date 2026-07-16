@@ -9,7 +9,6 @@
     font-size: 62.5%;
     --mainBackground : #8494FF;
     --mainDark : #6367FF;
-    --fontMain:#C9BEFF;
     --fontMainDark:#795eff;
     --mainLight:#C9BEFF;
 }
@@ -41,7 +40,7 @@ header
 {
     flex:1;
     display: grid;
-    grid-template-columns: 1fr 6fr;
+    grid-template-columns: 1fr 5fr 1fr;
     grid-template-rows: 1;
     height: 100%;
     width: 100%;
@@ -80,4 +79,68 @@ header
 .projectCreator:hover
 {
     color: var(--mainDark);
+}
+.hidden
+{
+    display: none;
+}
+.modalOverlay
+{
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(0.4rem);
+    z-index: 1;
+}
+.modal
+{
+    display: flex;
+    flex-direction: column;
+    width: 30vw;
+    height: 35vh;
+    background-color: var(--mainLight);
+    align-items: center;
+    padding: 2% 0;
+    color: var(--mainDark);
+    border-radius: 2rem;
+}
+.modalHeading
+{
+    font-size: 3rem;
+}
+.modalInputWrapper
+{
+    flex:1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.modalInput
+{
+    color: var(--fontMainDark);
+    font-size: 2.4rem;
+    padding: 10% 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.modalInput>input
+{
+    height: 3rem;
+    width: 65%;
+    margin : 0 0.5rem;
+    background-color: inherit;
+    border: 0.2rem solid var(--mainDark);
+    border-radius: 0.5rem;
+    color: inherit;
+    padding : 0 0.5rem;
+    font-size: 2rem;
+    
+}
+.modalInput>input:focus
+{
+    border: 0.2rem solid var(--mainDark);
+    outline: none;
 }
