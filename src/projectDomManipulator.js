@@ -40,6 +40,7 @@ export default class domManipulator
                 console.log(`ID = ${id}`);
                 const name=id.replace('project','');
                 const selectedProject = this.runner.selectProject(name);
+                console.log(this.runner.returnSelectedProject());
             }
 
         });

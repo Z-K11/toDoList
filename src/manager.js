@@ -45,6 +45,10 @@ export default class main
         })
         this.displayProjects();
     }
+    returnSelectedProject()
+    {
+        return this.#mainStorage.find(project=>project.isSelected);
+    }
     removeProject(name)
     {
         const project = this.getProjectByName(name);
