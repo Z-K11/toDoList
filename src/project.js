@@ -24,3 +24,4 @@ export default class projects
         }
     }
 }
+export let defaultProject = new projects('Default');

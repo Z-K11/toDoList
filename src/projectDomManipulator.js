@@ -5,7 +5,7 @@ export default class domManipulator
     #count=0;
     #projectList;
     #inputField;
-    constructor(main)
+    constructor(main)  
     {
         console.log('Dom Object succesfully created');
         this.runner = main;
@@ -30,8 +30,11 @@ export default class domManipulator
         this.#projectList.addEventListener('click',(e)=>
         {
             const id = e.target.id;
-            const name = id.replace('Remover','');
-            this.removeElement(name);
+            if(id.includes('Remover'))
+            {
+                const name = id.replace('Remover','');
+                this.removeElement(name);
+            }
 
         });
 

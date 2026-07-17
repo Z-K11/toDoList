@@ -170,6 +170,11 @@ header
     list-style: none;
     display: flex;
     justify-content: space-between;
+    border-left: 0.3rem solid var(--fontDark);
+    border-bottom: 0.3rem solid var(--fontDark);
+    padding: 2%;
+    border-radius: 1rem;
+
 }
 .projectRemover
 {
@@ -184,4 +189,16 @@ header
 .projectRemover:hover
 {
     cursor: pointer;
+}
+.toDoCreator
+{
+    background-color: var(--fontDark);
+    border-radius: 1rem 0 0 1rem;
+    padding : 15% 5% ;
+}
+.titleWrapper
+{
+    display: flex;
+    flex-direction: column;
+    gap:2rem;
 }
