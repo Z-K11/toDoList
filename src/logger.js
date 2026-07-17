@@ -1,4 +1,4 @@
-export default class logger
+class logger
 {
     //this class is a percfect example of why sometimes you don't need a constructor at all 
     info(message)
@@ -11,3 +11,4 @@ export default class logger
     }
 
 }
+export default new logger();

@@ -1,5 +1,4 @@
-import logger from './logger.js'
-const logix = new logger();
+import logix from './logger.js'
 export default class taskDomProcessor
 {
     #submitButton = document.querySelector('#submitTask');
@@ -29,6 +28,7 @@ export default class taskDomProcessor
     }
     inputValidator()
     {
+        this.clearInput();
         if(!this.#description.value||!this.#dueDate.value||!this.#notes.value||!this.#priority.value||!this.#title.value)
         {
             return 0;
@@ -41,5 +41,13 @@ export default class taskDomProcessor
         {
             return 2;
         }
+    }
+    clearInput()
+    {
+        this.#description.value='';
+        this.#dueDate.value='';
+        this.#notes.value='';
+        this.#priority.value='';
+        this.#title.value='';
     }
 };

@@ -1,5 +1,4 @@
-import logger from './logger.js';
-const logix = new logger();
+import logix from './logger.js';
 export default class main
 {
     //Array used for the storage of projects

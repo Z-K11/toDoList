@@ -1,5 +1,4 @@
-import logger from "./logger.js";
-const logix = new logger();
+import logix from "./logger.js";
 import todo from './todo.js';
 export default class projects
 {   
