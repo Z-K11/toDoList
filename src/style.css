@@ -196,7 +196,7 @@ header
     border-radius: 1rem 0 0 1rem;
     padding : 15% 5% ;
 }
-.titleWrapper,.descriptionWrapper
+.titleWrapper,.descriptionWrapper,.dueDateWrapper
 {
     display: flex;
     flex-direction: column;
@@ -216,5 +216,15 @@ header
 }
 .descriptionWrapper
 {
-    padding : 20% 0;
+    padding : 10% 0;
+}
+input[type="date"]
+{
+    background-color: var(--mainBackground);
+    color : var(--fontDark);
+    font-weight: bolder;
+    font-size: 1.8rem;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0 2%;
 }
