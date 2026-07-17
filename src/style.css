@@ -200,7 +200,7 @@ header
 {
     display: flex;
     flex-direction: column;
-    gap:2rem;
+    gap:1.5rem;
     color: var(--mainLight);
     font-size: 2.4rem;
 }
@@ -231,4 +231,26 @@ input[type="date"]
 .priorityWrapper
 {
     padding-top : 10%;
+}
+.taskSubmitter
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+#submitTask
+{
+    background-color: var(--mainBackground);
+    font-size: 1.6rem;
+    padding : 1% 8%;
+    color: var(--mainLight);
+    font-weight: bolder;
+    border-radius: 0.5rem;
+    border: none;
+}
+#submitTask:hover
+{
+    color: var(--fontDark);
+    cursor: pointer;
 }
