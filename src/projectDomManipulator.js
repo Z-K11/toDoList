@@ -80,7 +80,10 @@ export default class domManipulator
         removeProjectButton.id=projectName.name+'Remover';
         removeProjectButton.textContent='-';
         removeProjectButton.classList.add('projectRemover');
-        listItem.appendChild(removeProjectButton);
+        let removeWrapper=document.createElement('div');
+        removeWrapper.classList.add('removeWrapper');
+        listItem.appendChild(removeWrapper);
+        removeWrapper.appendChild(removeProjectButton);
         this.#projectList.appendChild(listItem);
     }
     removeElement(node)

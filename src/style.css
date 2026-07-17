@@ -178,13 +178,13 @@ header
 }
 .projectRemover
 {
-    padding: 0 4%;
     background-color: var(--mainBackground);
-    border-radius: 2rem;
+    border-radius: 0.5rem;
     border: 0.2rem solid var(--mainDark);
     font-size: 2.2rem;
     color: var(--fontDark);
     font-weight: bolder;
+    width: 100%;
 }
 .projectRemover:hover
 {
@@ -253,4 +253,10 @@ input[type="date"]
 {
     color: var(--fontDark);
     cursor: pointer;
+}
+.removeWrapper
+{
+    display: flex;
+    align-items: center;
+    width : 15%;
 }

@@ -2,6 +2,7 @@
 //import domProcessor from it's module
 import projectDomProcessor  from './projectDomManipulator.js';
 import main from './manager.js';
+import taskDomProcessor from './taskDomManipulator.js';
 //importing an instance of project object for default project creation
 import { defaultProject } from './project.js';
 //Adding css to the project
@@ -26,3 +27,4 @@ runner.addProjectToArray(defaultProject);
 const projectHandler = new projectDomProcessor(runner);
 projectHandler.initializeProjectCreation();
 projectHandler.appendProjectToDom(defaultProject);
+let task = new taskDomProcessor();
