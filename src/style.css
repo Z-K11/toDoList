@@ -196,9 +196,25 @@ header
     border-radius: 1rem 0 0 1rem;
     padding : 15% 5% ;
 }
-.titleWrapper
+.titleWrapper,.descriptionWrapper
 {
     display: flex;
     flex-direction: column;
     gap:2rem;
+    color: var(--mainLight);
+    font-size: 2.4rem;
+}
+.titleWrapper>input,.descriptionWrapper>textarea
+{
+    font-size: 1.6rem;
+    padding : 2% 3%; 
+    background-color: var(--mainBackground);
+    border: none;
+    color: var(--fontDark);
+    border-radius: 0.5rem;
+    font-weight: bolder;
+}
+.descriptionWrapper
+{
+    padding : 20% 0;
 }

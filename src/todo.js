@@ -1,4 +1,4 @@
-class todos
+export default class todos
 {
     //Private fields to keep data inaccessible outside of class
     #title;
