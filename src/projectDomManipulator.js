@@ -35,6 +35,12 @@ export default class domManipulator
                 const name = id.replace('Remover','');
                 this.removeElement(name);
             }
+            else if(id.includes('project'))
+            {
+                console.log(`ID = ${id}`);
+                const name=id.replace('project','');
+                const selectedProject = this.runner.selectProject(name);
+            }
 
         });
 
@@ -76,6 +82,7 @@ export default class domManipulator
         let namePara = document.createElement('p');
         listItem.appendChild(namePara);
         namePara.textContent=projectName.name;
+        namePara.id=projectName.name+`project`;
         let removeProjectButton = document.createElement('button');
         removeProjectButton.id=projectName.name+'Remover';
         removeProjectButton.textContent='-';

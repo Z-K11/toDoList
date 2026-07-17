@@ -37,6 +37,14 @@ export default class main
     {
         return this.#mainStorage.find(project => project.name === name);
     }
+    selectProject(name)
+    {
+        this.#mainStorage.forEach((project)=>
+        {
+            project.isSelected=(project.name===name);
+        })
+        this.displayProjects();
+    }
     removeProject(name)
     {
         const project = this.getProjectByName(name);
