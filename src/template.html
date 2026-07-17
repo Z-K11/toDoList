@@ -38,20 +38,25 @@
         </div>
         <div class="tasks"></div>
         <div class="toDoCreator">
-            <div class="titleWrapper">
+            <div class="titleWrapper todoWrapper">
                 <label for="title">Title</label>
                 <input type="text" id="title" name="title">
             </div>
-            <div class="descriptionWrapper">
+            <div class="descriptionWrapper todoWrapper">
                 <label for="description">Description</label>
-                <textarea  id="description" name="description" rows="5">
-                    Write task description here 
-                </textarea>
-                
+                <textarea  id="description" name="description" rows="3">Write task description here</textarea>
             </div>
-            <div class="dueDateWrapper">
+            <div class="dueDateWrapper todoWrapper">
                     <label for="due">Due Date</label>
                     <input type="date" id="due" name="due">
+            </div>
+            <div class="priorityWrapper todoWrapper">
+                <label for="priority">Priority</label>
+                <input type="number" id="priority" name="priority" min="1" max="7">
+            </div>
+            <div class="taskNotes todoWrapper">
+                <label for="notes">Notes :</label>
+                <textarea name="notes" id="notes" rows="3">Task notes</textarea>
             </div>
         </div>
     </div>

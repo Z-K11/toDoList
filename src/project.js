@@ -3,6 +3,7 @@ const logix = new logger();
 import todo from './todo.js';
 export default class projects
 {   
+        #priorities = [1,2,3,4,5,6,7];
         #projectArray = [];
         #taskCount=0;
     constructor(name)
@@ -14,7 +15,7 @@ export default class projects
     createTask(name,description,due,priority,notes)
     {
         this.#taskCount++;
-        if(this.#taskCount<=7)
+        if(this.#taskCount<=6)
         {
             this.#projectArray.push(new todos(name,description,due,priority,notes));
             logix.info(`created task for ${this.name} task count = ${this.#taskCount}`);
