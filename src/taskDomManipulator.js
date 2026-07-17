@@ -7,7 +7,7 @@ export default class taskDomProcessor
     #dueDate = document.querySelector('#due');
     #priority = document.querySelector('#priority');
     #notes = document.querySelector('#notes');
-    constructor(projectObject)
+    constructor(main)
     {
         this.#submitButton.addEventListener('click',()=>
         {

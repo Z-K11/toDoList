@@ -2,7 +2,8 @@ import logix from "./logger.js";
 import todo from './todo.js';
 export default class projects
 {   
-        #priorities = [1,2,3,4,5,6,7];
+        // #priorities = [1,2,3,4,5,6,7];
+        #selected = false;
         #projectArray = [];
         #taskCount=0;
     constructor(name)
@@ -23,6 +24,14 @@ export default class projects
         {
             logix.error("Cant't create anymore tasks maximus number of tasks per object reached");
         }
+    }
+    get isSelected()
+    {
+        return this.#selected;
+    }
+    set isSelected(value)
+    {
+        this.#selected=value;
     }
 }
 export let defaultProject = new projects('Default');
