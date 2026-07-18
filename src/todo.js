@@ -1,3 +1,4 @@
+import logix from './logger.js';
 export default class todos
 {
     //Private fields to keep data inaccessible outside of class
@@ -13,7 +14,11 @@ export default class todos
         this.#due=due;
         this.#priority=priority;
         this.#notes=notes;
-        logix.info(`toDo Created with title {${this.title}} constructor definition at line 70`);
+        logix.info(`toDo Created with title {${this.#title}} constructor definition at line 70`);
+    }
+    get priority()
+    {
+        return this.#priority;
     }
     
 }

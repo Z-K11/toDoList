@@ -37,7 +37,6 @@ export default class domManipulator
             }
             else if(id.includes('projectDiv'))
             {
-                console.log(`ID = ${id}`);
                 const name=id.replace('projectDiv','');
                 this.runner.selectProject(name);
                 const editStyle= this.runner.returnSelectedProject();

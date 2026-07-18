@@ -7,8 +7,10 @@ export default class taskDomProcessor
     #dueDate = document.querySelector('#due');
     #priority = document.querySelector('#priority');
     #notes = document.querySelector('#notes');
+    #runner;
     constructor(main)
     {
+        this.#runner=main;
         this.#submitButton.addEventListener('click',()=>
         {
             const checkinput = this.inputValidator();
@@ -22,13 +24,14 @@ export default class taskDomProcessor
             }
             else if (checkinput===2)
             {
-                logix.info('no errors');
+                let currentProject = this.#runner.returnSelectedProject();
+                currentProject.createTask(this.#title.value,this.#description.value,this.#dueDate.value,this.#priority.value,this.#notes.value);
             }
+            // this.clearInput();
         });
     }
     inputValidator()
     {
-        this.clearInput();
         if(!this.#description.value||!this.#dueDate.value||!this.#notes.value||!this.#priority.value||!this.#title.value)
         {
             return 0;
@@ -49,5 +52,11 @@ export default class taskDomProcessor
         this.#notes.value='';
         this.#priority.value='';
         this.#title.value='';
+    }
+    appendTask()
+    {
+        const task = document.querySelector('.tasks');
+        task.innerHTML='';
+            
     }
 };

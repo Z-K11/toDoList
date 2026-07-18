@@ -17,7 +17,7 @@ export default class projects
         this.#taskCount++;
         if(this.#taskCount<=6)
         {
-            this.#projectArray.push(new todos(name,description,due,priority,notes));
+            this.#projectArray.push(new todo(name,description,due,priority,notes));
             logix.info(`created task for ${this.name} task count = ${this.#taskCount}`);
         }
         else
@@ -32,6 +32,13 @@ export default class projects
     set isSelected(value)
     {
         this.#selected=value;
+    }
+    returnSortedTasks()
+    {
+        return this.#projectArray.sort((a,b)=>
+        {
+            a.priority - b.priority;
+        })
     }
 }
 export let defaultProject = new projects('Default');
