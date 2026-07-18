@@ -61,4 +61,8 @@ export default class main
         }
         this.displayProjects();
     }
+    returnUnSelectedProjectNames()
+    {
+        return this.#mainStorage.filter(project =>!project.isSelected).map(project=>project.name);
+    }
 };

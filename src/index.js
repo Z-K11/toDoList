@@ -23,6 +23,7 @@ const runner = new main();
 // runner.displayProjects();
 // const userProject = runner.getProjectByName('User');
 // userProject.createTask();
+defaultProject.isSelected=true;
 runner.addProjectToArray(defaultProject);
 const projectHandler = new projectDomProcessor(runner);
 projectHandler.initializeProjectCreation();
