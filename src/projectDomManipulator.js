@@ -43,7 +43,7 @@ export default class domManipulator
                 const editStyle= this.runner.returnSelectedProject();
                 const domLocation = document.querySelector(`#${editStyle.name}`);
                 domLocation.classList.add('selectedProject');
-                console.log(this.runner.returnUnSelectedProjectNames());
+                this.removeSelectionHighlight();
             }
 
         });
@@ -104,6 +104,11 @@ export default class domManipulator
     }
     removeSelectionHighlight()
     {
-
+        const unSelectedProjects = this.runner.returnUnSelectedProjectNames();
+        unSelectedProjects.forEach(element => 
+        {
+            const domObject = document.querySelector(`#${element}`);
+            domObject.classList.remove('selectedProject');
+        });
     }
 }
