@@ -264,3 +264,12 @@ input[type="date"]
 {
     border-color: green;
 }
+.taskWrapper
+{
+    padding : 3%;
+}
+.taskList
+{
+    list-style: none;
+    
+}

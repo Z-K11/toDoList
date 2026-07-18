@@ -60,10 +60,21 @@ export default class taskDomProcessor
     {
         this.#task.innerHTML='';
         let taskSortedArray=currentProject.returnSortedTasks();
-        let title = document.createElement('h5');
-        let description=document.createElement('p');
-        let due= document.createElement('p');
-        let notes = document.createElement('p');
+        taskSortedArray.forEach((task)=>
+        {
+            let taskList = document.createElement('li');
+            taskList.classList.add('taskList');
+            let taskTitle = document.createElement('h5');
+            taskTitle.textContent = task.name;
+            let taskDescription = document.createElement('p');
+            taskDescription.textContent=task.description;
+            let taskDueDate = document.createElement('p');
+            taskDueDate.textContent=task.due;
+            let taskNotes = document.createElement('p');
+            taskNotes.textContent=task.notes;
+            taskList.append(taskTitle,taskDescription,taskNotes,taskDueDate);
+            this.#task.appendChild(taskList);
+        });
             
     }
 };
