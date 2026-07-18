@@ -64,10 +64,11 @@ export default class taskDomProcessor
         {
             let taskList = document.createElement('li');
             taskList.classList.add('taskList');
-            let taskTitle = document.createElement('h5');
+            let taskTitle = document.createElement('h3');
             taskTitle.textContent = task.name;
             let taskDescription = document.createElement('p');
             taskDescription.textContent=task.description;
+            taskDescription.classList.add('taskDescription');
             let taskDueDate = document.createElement('p');
             taskDueDate.textContent=task.due;
             let taskNotes = document.createElement('p');
