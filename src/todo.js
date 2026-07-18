@@ -20,5 +20,21 @@ export default class todos
     {
         return this.#priority;
     }
+    get name()
+    {
+        return this.#title;
+    }
+    get description()
+    {
+        return this.#description;
+    }
+    get due()
+    {
+        return this.#due;
+    }
+    get notes()
+    {
+        return this.#notes;
+    }
     
 }

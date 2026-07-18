@@ -35,10 +35,7 @@ export default class projects
     }
     returnSortedTasks()
     {
-        return this.#projectArray.sort((a,b)=>
-        {
-            a.priority - b.priority;
-        })
+        return this.#projectArray.sort((b,a)=>a.priority - b.priority);
     }
 }
 export let defaultProject = new projects('Default');

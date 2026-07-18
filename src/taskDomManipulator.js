@@ -8,6 +8,8 @@ export default class taskDomProcessor
     #priority = document.querySelector('#priority');
     #notes = document.querySelector('#notes');
     #runner;
+    #task = document.querySelector('.tasks');
+    
     constructor(main)
     {
         this.#runner=main;
@@ -26,6 +28,7 @@ export default class taskDomProcessor
             {
                 let currentProject = this.#runner.returnSelectedProject();
                 currentProject.createTask(this.#title.value,this.#description.value,this.#dueDate.value,this.#priority.value,this.#notes.value);
+                this.appendTask(currentProject);
             }
             // this.clearInput();
         });
@@ -53,10 +56,14 @@ export default class taskDomProcessor
         this.#priority.value='';
         this.#title.value='';
     }
-    appendTask()
+    appendTask(currentProject)
     {
-        const task = document.querySelector('.tasks');
-        task.innerHTML='';
+        this.#task.innerHTML='';
+        let taskSortedArray=currentProject.returnSortedTasks();
+        let title = document.createElement('h5');
+        let description=document.createElement('p');
+        let due= document.createElement('p');
+        let notes = document.createElement('p');
             
     }
 };
