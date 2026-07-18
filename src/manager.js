@@ -13,7 +13,7 @@ export default class main
     {
         for(let i =0;i<this.#mainStorage.length;i++)
         {
-            console.log(this.#mainStorage[i]);
+            logix.info(this.#mainStorage[i]);
         }
     }
     //Adds project object to an array of projectObjects for storage
@@ -43,7 +43,6 @@ export default class main
         {
             project.isSelected=(project.name===name);
         })
-        this.displayProjects();
     }
     returnSelectedProject()
     {
@@ -59,7 +58,6 @@ export default class main
             logix.info(`Project : ${name} removed`);
             this.#count--;
         }
-        this.displayProjects();
     }
     returnUnSelectedProjectNames()
     {
