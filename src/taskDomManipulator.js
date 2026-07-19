@@ -63,6 +63,11 @@ export default class taskDomProcessor
         taskSortedArray.forEach((task)=>
         {
             let taskList = document.createElement('li');
+            let taskRemover = document.createElement('div');
+            let removeButton = document.createElement('button');
+            removeButton.id=task.name+'Remover';
+            removeButton.textContent='Remove';
+            removeButton.classList.add('removeTask');
             taskList.classList.add('taskList');
             let taskTitle = document.createElement('h3');
             taskTitle.textContent = task.name;
@@ -73,7 +78,8 @@ export default class taskDomProcessor
             taskDueDate.textContent=task.due;
             let taskNotes = document.createElement('p');
             taskNotes.textContent=task.notes;
-            taskList.append(taskTitle,taskDescription,taskNotes,taskDueDate);
+            taskRemover.appendChild(removeButton);
+            taskList.append(taskTitle,taskDescription,taskNotes,taskDueDate,taskRemover);
             this.#task.appendChild(taskList);
         });
             

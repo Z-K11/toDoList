@@ -48,6 +48,7 @@ export default class domManipulator
                 this.removeSelectionHighlight();
                 this.#tasks.innerHTML='';
                 let currentProject=this.runner.returnSelectedProject();
+                this.taskAppendor(currentProject);
 
             }
 
