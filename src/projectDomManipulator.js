@@ -121,4 +121,8 @@ export default class domManipulator
     {
         this.#taskDomManager.appendTask(currentProject);
     }
+    initializeTaskDomRemover()
+    {
+        this.#taskDomManager.initializeTaskRemover();
+    }
 }

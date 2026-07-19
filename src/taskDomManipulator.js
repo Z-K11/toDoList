@@ -63,6 +63,7 @@ export default class taskDomProcessor
         taskSortedArray.forEach((task)=>
         {
             let taskList = document.createElement('li');
+            taskList.id=task.name;
             let taskRemover = document.createElement('div');
             let removeButton = document.createElement('button');
             removeButton.id=task.name+'Remover';
@@ -83,5 +84,24 @@ export default class taskDomProcessor
             this.#task.appendChild(taskList);
         });
             
+    }
+    removeTaskNode(name)
+    {
+        document.getElementById(name).remove();
+        let project = this.#runner.returnSelectedProject();
+        project.removeTask(name);
+
+    }
+    initializeTaskRemover()
+    {
+        this.#task.addEventListener('click',(e)=>
+        {
+            let target = e.target.id;
+            if(target.includes('Remover'))
+            {
+                const name = target.replace('Remover','');
+                this.removeTaskNode(name);
+            }
+        })
     }
 };

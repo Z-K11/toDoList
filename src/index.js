@@ -30,3 +30,4 @@ const projectHandler = new projectDomProcessor(runner);
 projectHandler.initializeProjectCreation();
 projectHandler.appendProjectToDom(defaultProject);
 projectHandler.taskAppendor(defaultProject);
+projectHandler.initializeTaskDomRemover();
