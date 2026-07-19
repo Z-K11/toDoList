@@ -34,9 +34,9 @@ export default class projects
             logix.info(this.#projectArray[i]);
         }
     }
-    returnTaskByName(name)
+    returnTaskById(id)
     {
-        return this.#projectArray.find((task)=>task.name===name);
+        return this.#projectArray.find((task)=>task.id===id);
     }
     get isSelected()
     {
@@ -50,15 +50,15 @@ export default class projects
     {
         return this.#projectArray.sort((b,a)=>a.priority - b.priority);
     }
-    removeTask(name)
+    removeTask(id)
     {
-        const task = this.returnTaskByName(name);
+        const task = this.returnTaskById(id);
         const index = this.#projectArray.indexOf(task);
         console.log(index);
         if(index>-1)
         {
             this.#projectArray.splice(index,1);
-            logix.info(`${name} : task removed`);
+            logix.info(`${task.name} : task removed`);
             this.#taskCount--;
             this.logArray();
         }

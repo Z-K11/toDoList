@@ -63,10 +63,10 @@ export default class taskDomProcessor
         taskSortedArray.forEach((task)=>
         {
             let taskList = document.createElement('li');
-            taskList.id=task.name;
+            taskList.dataset.id=task.id;
             let taskRemover = document.createElement('div');
             let removeButton = document.createElement('button');
-            removeButton.id=task.name+'Remover';
+            removeButton.dataset.id=task.id+'Remover';
             removeButton.textContent='Remove';
             removeButton.classList.add('removeTask');
             taskList.classList.add('taskList');
@@ -85,22 +85,22 @@ export default class taskDomProcessor
         });
             
     }
-    removeTaskNode(name)
+    removeTaskNode(id)
     {
-        document.getElementById(name).remove();
+        document.querySelector(`[data-id="${id}"]`).remove();
         let project = this.#runner.returnSelectedProject();
-        project.removeTask(name);
+        project.removeTask(id);
 
     }
     initializeTaskRemover()
     {
         this.#task.addEventListener('click',(e)=>
         {
-            let target = e.target.id;
+            let target = e.target.dataset.id;
             if(target.includes('Remover'))
             {
-                const name = target.replace('Remover','');
-                this.removeTaskNode(name);
+                const id = target.replace('Remover','');
+                this.removeTaskNode(id);
             }
         })
     }

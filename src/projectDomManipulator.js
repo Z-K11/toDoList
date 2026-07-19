@@ -32,7 +32,8 @@ export default class domManipulator
         });
         this.#projectList.addEventListener('click',(e)=>
         {
-            const id = e.target.id;
+            const id = e.target.dataset.id;
+            if(!id)return;
             if(id.includes('Remover'))
             {
                 const projectId = id.replace('Remover','');
@@ -43,7 +44,7 @@ export default class domManipulator
                 const projectId=id.replace('projectDiv','');
                 this.runner.selectProject(projectId);
                 const editStyle= this.runner.returnSelectedProject();
-                const domLocation = document.querySelector(`#${editStyle.id}`);
+                const domLocation = document.querySelector(`[data-id="${editStyle.id}"]`);
                 domLocation.classList.add('selectedProject');
                 this.removeSelectionHighlight();
                 this.#tasks.innerHTML='';
@@ -51,6 +52,7 @@ export default class domManipulator
                 this.taskAppendor(currentProject);
 
             }
+            
 
         });
 
@@ -84,20 +86,21 @@ export default class domManipulator
         this.appendProjectToDom(this.runner.getProjectById(check));
         }
     }
-    appendProjectToDom(projectName)
+    appendProjectToDom(projectId)
     {
         let listItem=document.createElement('li');
-        listItem.id=projectName.id;
+        listItem.dataset.id=projectId.id;
         listItem.classList.add('protjectStyles');
         let namePara = document.createElement('p');
         listItem.appendChild(namePara);
-        namePara.textContent=projectName.name;
-        namePara.id=projectName.id+`projectDiv`;
+        namePara.textContent=projectId.name;
+        namePara.dataset.id=projectId.id+`projectDiv`;
         let removeProjectButton = document.createElement('button');
-        removeProjectButton.id=projectName.id+'Remover';
+        removeProjectButton.dataset.id=projectId.id+'Remover';
         removeProjectButton.textContent='-';
         removeProjectButton.classList.add('projectRemover');
         let removeWrapper=document.createElement('div');
+        removeWrapper.dataset.id='removeWrapperId';
         removeWrapper.classList.add('removeWrapper');
         listItem.appendChild(removeWrapper);
         removeWrapper.appendChild(removeProjectButton);
@@ -105,7 +108,7 @@ export default class domManipulator
     }
     removeElement(node)
     {
-        document.getElementById(node).remove();
+        document.querySelector(`[data-id="${node}"]`).remove();
         this.runner.removeProject(node);
     }
     removeSelectionHighlight()
@@ -113,7 +116,7 @@ export default class domManipulator
         const unSelectedProjects = this.runner.returnUnSelectedProjectNames();
         unSelectedProjects.forEach(element => 
         {
-            const domObject = document.querySelector(`#${element}`);
+            const domObject = document.querySelector(`[data-id="${element}"]`);
             domObject.classList.remove('selectedProject');
         });
     }
