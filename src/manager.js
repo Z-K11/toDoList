@@ -24,7 +24,7 @@ export default class main
             this.#mainStorage.push(projectObject);
             this.#count++;
             logix.info('Project Created');
-            return true;
+            return projectObject.id;
         }
         else
         {
@@ -33,34 +33,34 @@ export default class main
         }
     }
     //Searches the array for object using it's name
-    getProjectByName(name)
+    getProjectById(id)
     {
-        return this.#mainStorage.find(project => project.name === name);
+        return this.#mainStorage.find(project => project.id === id);
     }
-    selectProject(name)
+    selectProject(id)
     {
         this.#mainStorage.forEach((project)=>
         {
-            project.isSelected=(project.name===name);
+            project.isSelected=(project.id===id);
         })
     }
     returnSelectedProject()
     {
         return this.#mainStorage.find(project=>project.isSelected);
     }
-    removeProject(name)
+    removeProject(id)
     {
-        const project = this.getProjectByName(name);
+        const project = this.getProjectById(id);
         const index = this.#mainStorage.indexOf(project);
         if (index>-1)
         {
             this.#mainStorage.splice(index,1);
-            logix.info(`Project : ${name} removed`);
+            logix.info(`Project : ${project.name} removed`);
             this.#count--;
         }
     }
     returnUnSelectedProjectNames()
     {
-        return this.#mainStorage.filter(project =>!project.isSelected).map(project=>project.name);
+        return this.#mainStorage.filter(project =>!project.isSelected).map(project=>project.id);
     }
 };

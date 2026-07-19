@@ -35,15 +35,15 @@ export default class domManipulator
             const id = e.target.id;
             if(id.includes('Remover'))
             {
-                const name = id.replace('Remover','');
-                this.removeElement(name);
+                const projectId = id.replace('Remover','');
+                this.removeElement(projectId);
             }
             else if(id.includes('projectDiv'))
             {
-                const name=id.replace('projectDiv','');
-                this.runner.selectProject(name);
+                const projectId=id.replace('projectDiv','');
+                this.runner.selectProject(projectId);
                 const editStyle= this.runner.returnSelectedProject();
-                const domLocation = document.querySelector(`#${editStyle.name}`);
+                const domLocation = document.querySelector(`#${editStyle.id}`);
                 domLocation.classList.add('selectedProject');
                 this.removeSelectionHighlight();
                 this.#tasks.innerHTML='';
@@ -79,22 +79,22 @@ export default class domManipulator
         const projectName = this.#inputField.value;
         const check=this.runner.addProjectToArray(new Projects(projectName));
         this.#inputField.value='';
-        if(check)
+        if(check!=false)
         {
-        this.appendProjectToDom(this.runner.getProjectByName(projectName));
+        this.appendProjectToDom(this.runner.getProjectById(check));
         }
     }
     appendProjectToDom(projectName)
     {
         let listItem=document.createElement('li');
-        listItem.id=projectName.name;
+        listItem.id=projectName.id;
         listItem.classList.add('protjectStyles');
         let namePara = document.createElement('p');
         listItem.appendChild(namePara);
         namePara.textContent=projectName.name;
-        namePara.id=projectName.name+`projectDiv`;
+        namePara.id=projectName.id+`projectDiv`;
         let removeProjectButton = document.createElement('button');
-        removeProjectButton.id=projectName.name+'Remover';
+        removeProjectButton.id=projectName.id+'Remover';
         removeProjectButton.textContent='-';
         removeProjectButton.classList.add('projectRemover');
         let removeWrapper=document.createElement('div');
