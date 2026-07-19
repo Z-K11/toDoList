@@ -1,12 +1,15 @@
 import Projects from './project.js'
-// import main from './manager.js';
+import taskDomProcessor from './taskDomManipulator.js';
 export default class domManipulator
 {
     #count=0;
     #projectList;
     #inputField;
+    #tasks = document.querySelector('.tasks');
+    #taskDomManager
     constructor(main)  
-    {
+    {   
+        this.#taskDomManager = new taskDomProcessor(main)
         console.log('Dom Object succesfully created');
         this.runner = main;
         this.modal = document.querySelector('.modalOverlay');
@@ -43,6 +46,10 @@ export default class domManipulator
                 const domLocation = document.querySelector(`#${editStyle.name}`);
                 domLocation.classList.add('selectedProject');
                 this.removeSelectionHighlight();
+                this.#tasks.innerHTML='';
+                let currentProject=this.runner.returnSelectedProject();
+                this.#taskDomManager.appendTask(currentProject);
+
             }
 
         });

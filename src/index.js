@@ -28,4 +28,3 @@ runner.addProjectToArray(defaultProject);
 const projectHandler = new projectDomProcessor(runner);
 projectHandler.initializeProjectCreation();
 projectHandler.appendProjectToDom(defaultProject);
-let task = new taskDomProcessor(runner);
