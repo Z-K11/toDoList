@@ -48,7 +48,6 @@ export default class domManipulator
                 this.removeSelectionHighlight();
                 this.#tasks.innerHTML='';
                 let currentProject=this.runner.returnSelectedProject();
-                this.#taskDomManager.appendTask(currentProject);
 
             }
 
@@ -116,5 +115,9 @@ export default class domManipulator
             const domObject = document.querySelector(`#${element}`);
             domObject.classList.remove('selectedProject');
         });
+    }
+    taskAppendor(currentProject)
+    {
+        this.#taskDomManager.appendTask(currentProject);
     }
 }
