@@ -25,9 +25,16 @@ export default class projects
             logix.error("Cant't create anymore tasks maximus number of tasks per object reached");
         }
     }
+    logArray()
+    {
+        for(let i =0;i<this.#projectArray.length;i++)
+        {
+            logix.info(this.#projectArray[i]);
+        }
+    }
     returnTaskByName(name)
     {
-        return this.#projectArray.find((project)=>project.title===name);
+        return this.#projectArray.find((task)=>task.name===name);
     }
     get isSelected()
     {
@@ -45,11 +52,13 @@ export default class projects
     {
         const task = this.returnTaskByName(name);
         const index = this.#projectArray.indexOf(task);
-        if(task>-1)
+        console.log(index);
+        if(index>-1)
         {
             this.#projectArray.splice(index,1);
             logix.info(`${name} : task removed`);
             this.#taskCount--;
+            this.logArray();
         }
     }
 }

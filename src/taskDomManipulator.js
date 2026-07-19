@@ -30,7 +30,7 @@ export default class taskDomProcessor
                 currentProject.createTask(this.#title.value,this.#description.value,this.#dueDate.value,this.#priority.value,this.#notes.value);
                 this.appendTask(currentProject);
             }
-            // this.clearInput();
+            this.clearInput();
         });
     }
     inputValidator()
