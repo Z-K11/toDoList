@@ -7,8 +7,10 @@ export default class todos
     #due;
     #priority;
     #notes;
+    #id;
     constructor(title,description,due,priority,notes)
     {
+        this.#id=crypto.randomUUID();
         this.#title= title;
         this.#description=description;
         this.#due=due;
@@ -36,5 +38,8 @@ export default class todos
     {
         return this.#notes;
     }
-    
+    get id()
+    {
+        return this.#id;
+    }
 }

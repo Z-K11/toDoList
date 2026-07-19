@@ -6,8 +6,10 @@ export default class projects
         #selected = false;
         #projectArray = [];
         #taskCount=0;
+        #id;
     constructor(name)
     {
+        this.#id=crypto.randomUUID();
         this.name=name;
         logix.info(`New project created by the name :${this.name} definition in file src/project.js`);
     }
@@ -60,6 +62,10 @@ export default class projects
             this.#taskCount--;
             this.logArray();
         }
+    }
+    get id()
+    {
+        return this.#id;
     }
 }
 export let defaultProject = new projects('Default');
