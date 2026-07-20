@@ -67,5 +67,16 @@ export default class projects
     {
         return this.#id;
     }
+    returnTasks()
+    {
+        return this.#projectArray.map(task=>
+        {
+            return [task.name,task.description,task.due,task.priority,task.notes];
+        }
+        );
+        
+    }
 }
 export let defaultProject = new projects('Default');
+export let anotherProject = new projects('Gym');
+export let school = new projects('School');

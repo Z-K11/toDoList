@@ -5,6 +5,8 @@ import main from './manager.js';
 import taskDomProcessor from './taskDomManipulator.js';
 //importing an instance of project object for default project creation
 import { defaultProject } from './project.js';
+import { school } from './project.js';
+import { anotherProject } from './project.js';
 //Adding css to the project
 import './style.css';
 //class to run the app in console
@@ -26,8 +28,13 @@ const runner = new main();
 defaultProject.isSelected=true;
 defaultProject.createTask('Gym','Head to the gym at 6pm','12/06/2023',2,'Go to the gymnasium to watch your school team play basketball against seniors');
 runner.addProjectToArray(defaultProject);
+runner.addProjectToArray(school);
+runner.addProjectToArray(anotherProject);
 const projectHandler = new projectDomProcessor(runner);
 projectHandler.initializeProjectCreation();
 projectHandler.appendProjectToDom(defaultProject);
 projectHandler.taskAppendor(defaultProject);
 projectHandler.initializeTaskDomRemover();
+const projectArray=runner.returnProjectNames();
+console.log(projectArray);
+console.log(JSON.parse(JSON.stringify(projectArray)));

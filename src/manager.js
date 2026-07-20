@@ -63,4 +63,11 @@ export default class main
     {
         return this.#mainStorage.filter(project =>!project.isSelected).map(project=>project.id);
     }
+    returnProjectNames()
+    {
+        return this.#mainStorage.map(project => [project.name,project.returnTasks()]);
+        
+    }
+
+
 };
