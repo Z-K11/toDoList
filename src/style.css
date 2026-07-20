@@ -176,6 +176,12 @@ header
     border-radius: 1rem;
 
 }
+.protjectStyles>p
+{
+    overflow-wrap: break-word;
+    hyphens: auto;
+    max-width: 70%;
+}
 .projectRemover
 {
     background-color: var(--mainBackground);
