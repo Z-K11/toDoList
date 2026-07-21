@@ -7,9 +7,11 @@ export default class domManipulator
     #inputField;
     #tasks = document.querySelector('.tasks');
     #taskDomManager
-    constructor(main)  
+    #memmory
+    constructor(main,storage)  
     {   
-        this.#taskDomManager = new taskDomProcessor(main)
+        this.#memmory=storage;
+        this.#taskDomManager = new taskDomProcessor(main,this.#memmory)
         console.log('Dom Object succesfully created');
         this.runner = main;
         this.modal = document.querySelector('.modalOverlay');
@@ -84,6 +86,7 @@ export default class domManipulator
         if(check!=false)
         {
         this.appendProjectToDom(this.runner.getProjectById(check));
+        this.#memmory.saveToStorage(this.runner);
         }
     }
     appendProjectToDom(projectId)
@@ -110,6 +113,7 @@ export default class domManipulator
     {
         document.querySelector(`[data-id="${node}"]`).remove();
         this.runner.removeProject(node);
+        this.#memmory.saveToStorage(this.runner);
     }
     removeSelectionHighlight()
     {

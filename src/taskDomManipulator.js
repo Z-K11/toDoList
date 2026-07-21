@@ -9,10 +9,11 @@ export default class taskDomProcessor
     #notes = document.querySelector('#notes');
     #runner;
     #task = document.querySelector('.tasks');
-    
-    constructor(main)
+    #memmory
+    constructor(main,storage)
     {
         this.#runner=main;
+        this.#memmory=storage;
         this.#submitButton.addEventListener('click',()=>
         {
             const checkinput = this.inputValidator();
@@ -29,6 +30,7 @@ export default class taskDomProcessor
                 let currentProject = this.#runner.returnSelectedProject();
                 currentProject.createTask(this.#title.value,this.#description.value,this.#dueDate.value,this.#priority.value,this.#notes.value);
                 this.appendTask(currentProject);
+                this.#memmory.saveToStorage(this.#runner);
             }
             this.clearInput();
         });
@@ -90,6 +92,7 @@ export default class taskDomProcessor
         document.querySelector(`[data-id="${id}"]`).remove();
         let project = this.#runner.returnSelectedProject();
         project.removeTask(id);
+        this.#memmory.saveToStorage(this.#runner);
 
     }
     initializeTaskRemover()
@@ -97,6 +100,8 @@ export default class taskDomProcessor
         this.#task.addEventListener('click',(e)=>
         {
             let target = e.target.dataset.id;
+            if(!target)
+                return;
             if(target.includes('Remover'))
             {
                 const id = target.replace('Remover','');

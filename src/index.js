@@ -9,7 +9,7 @@ import { defaultProject } from './project.js';
 import './style.css';
 //class to run the app in console
 //class to create reminders
-
+let memomry = new storage();
 // Creating a logger object
 // Creating our runner object which will run the main functionality of our program
 // runner.addProjectToArray(new projects('Default'));
@@ -25,10 +25,8 @@ import './style.css';
 defaultProject.isSelected=true;
 defaultProject.createTask('Gym','Head to the gym at 6pm','12/06/2023',2,'Go to the gymnasium to watch your school team play basketball against seniors');
 runner.addProjectToArray(defaultProject);
-const projectHandler = new projectDomProcessor(runner);
+const projectHandler = new projectDomProcessor(runner,memomry);
 projectHandler.initializeProjectCreation();
 projectHandler.appendProjectToDom(defaultProject);
 projectHandler.taskAppendor(defaultProject);
 projectHandler.initializeTaskDomRemover();
-let memomry = new storage(runner);
-memomry.saveToStorage();
