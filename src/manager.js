@@ -1,5 +1,5 @@
 import logix from './logger.js';
-export default class main
+class main
 {
     //Array used for the storage of projects
     #mainStorage = [];
@@ -63,7 +63,7 @@ export default class main
     {
         return this.#mainStorage.filter(project =>!project.isSelected).map(project=>project.id);
     }
-    returnProjectNames()
+    returnProjects()
     {
         return this.#mainStorage.map(project => [project.name,project.returnTasks()]);
         
@@ -71,3 +71,4 @@ export default class main
 
 
 };
+export let runner = new main();

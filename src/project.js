@@ -78,5 +78,3 @@ export default class projects
     }
 }
 export let defaultProject = new projects('Default');
-export let anotherProject = new projects('Gym');
-export let school = new projects('School');

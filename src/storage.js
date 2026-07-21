@@ -1,10 +1,12 @@
+import logix from "./logger.js";
 export default class
 {
-    constructor()
+    #runner;
+    constructor(main)
     {
-
+        this.#runner = main;
     }
-    storageAvailable(type)
+    #storageAvailable(type)
     {
         let storage
         try
@@ -20,5 +22,16 @@ export default class
             return(   
                     e instanceof DOMException && e.name ==="QuotaExceededError" && storage && storage.length!==0
                     );}   
+    }
+    saveToStorage()
+    {
+        if(this.#storageAvailable('localStorage'))
+        {
+            localStorage.setItem('saved',JSON.stringify(this.#runner.returnProjects()));
+        }
+        else
+        {
+            logix.error(`Could Not Save to local storage`);
+        }
     }
 }
