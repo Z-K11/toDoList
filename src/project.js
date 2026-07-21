@@ -76,5 +76,9 @@ export default class projects
         );
         
     }
+    set taskArrayLength(x)
+    {
+        this.#projectArray.length=x;
+    }
 }
 export let defaultProject = new projects('Default');

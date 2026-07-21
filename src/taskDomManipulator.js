@@ -28,9 +28,14 @@ export default class taskDomProcessor
             else if (checkinput===2)
             {
                 let currentProject = this.#runner.returnSelectedProject();
+                if(!currentProject)
+                {
+                    alert("Please Select a project before creating task");
+                    return;
+                }
                 currentProject.createTask(this.#title.value,this.#description.value,this.#dueDate.value,this.#priority.value,this.#notes.value);
                 this.appendTask(currentProject);
-                this.#memmory.saveToStorage(this.#runner);
+                this.#memmory.saveToStorage();
             }
             this.clearInput();
         });
@@ -91,8 +96,13 @@ export default class taskDomProcessor
     {
         document.querySelector(`[data-id="${id}"]`).remove();
         let project = this.#runner.returnSelectedProject();
+        if(!project)
+        {
+            alert("Please Select A project Before Removing Task");
+            return;
+        }
         project.removeTask(id);
-        this.#memmory.saveToStorage(this.#runner);
+        this.#memmory.saveToStorage();
 
     }
     initializeTaskRemover()

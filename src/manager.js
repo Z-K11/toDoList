@@ -51,6 +51,7 @@ class main
     removeProject(id)
     {
         const project = this.getProjectById(id);
+        project.setArrayLength=0;
         const index = this.#mainStorage.indexOf(project);
         if (index>-1)
         {

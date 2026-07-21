@@ -1,8 +1,13 @@
 import logix from "./logger.js";
-export default class
+import projects from "./project.js";
+import { runner } from "./manager.js";
+export default class memory
 {
     #runner;
-  
+    constructor(main)
+    {
+        this.#runner=main;
+    }
     #storageAvailable(type)
     {
         let storage
@@ -20,11 +25,12 @@ export default class
                     e instanceof DOMException && e.name ==="QuotaExceededError" && storage && storage.length!==0
                     );}   
     }
-    saveToStorage(runner)
+    saveToStorage()
     {
         if(this.#storageAvailable('localStorage'))
         {
-            localStorage.setItem('saved',JSON.stringify(runner.returnProjects()));
+            console.log('Saving:', this.#runner.returnProjects());
+            localStorage.setItem('saved',JSON.stringify(this.#runner.returnProjects()));
         }
         else
         {
@@ -36,8 +42,21 @@ export default class
         if(this.#storageAvailable('localStorage'))
         {
             let projectData=JSON.parse(localStorage.getItem('saved'));
-            console.log(projectData.length);
+            for(let i=0;i<projectData.length;i++)
+            {   
+                console.log(projectData[i][0]);
+                let x = new projects(projectData[i][0]);
+                let xId = this.#runner.addProjectToArray(x);
+                projectHandler.appendProjectToDom(this.#runner.getProjectById(xId));
+                for(let j=0;j<projectData[i][1].length;j++)
+                {
+                    console.log(projectData[i][1][j]);
+                    x.createTask(projectData[i][1][j][0],projectData[i][1][j][1],projectData[i][1][j][2],projectData[i][1][j][3],projectData[i][1][j][4]);
+                    projectHandler.taskAppendor(x);
+                }
+            }
             //[projectsArray][projectNameString,tasksArray][specificTaskArray][taskValues]
+            console.log(projectData);
         }
         else
         {
@@ -45,3 +64,4 @@ export default class
         }
     }
 }
+export const storage = new memory(runner);

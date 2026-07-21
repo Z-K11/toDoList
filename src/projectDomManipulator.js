@@ -1,6 +1,8 @@
 import Projects from './project.js'
+import { runner } from './manager.js';
+import { storage } from './storage.js';
 import taskDomProcessor from './taskDomManipulator.js';
-export default class domManipulator
+class domManipulator
 {
     #count=0;
     #projectList;
@@ -51,6 +53,11 @@ export default class domManipulator
                 this.removeSelectionHighlight();
                 this.#tasks.innerHTML='';
                 let currentProject=this.runner.returnSelectedProject();
+                if(!currentProject)
+                {
+                    alert("Please Select Project and then remove task");
+                    return;
+                }
                 this.taskAppendor(currentProject);
 
             }
@@ -86,7 +93,7 @@ export default class domManipulator
         if(check!=false)
         {
         this.appendProjectToDom(this.runner.getProjectById(check));
-        this.#memmory.saveToStorage(this.runner);
+        this.#memmory.saveToStorage();
         }
     }
     appendProjectToDom(projectId)
@@ -113,7 +120,7 @@ export default class domManipulator
     {
         document.querySelector(`[data-id="${node}"]`).remove();
         this.runner.removeProject(node);
-        this.#memmory.saveToStorage(this.runner);
+        this.#memmory.saveToStorage();
     }
     removeSelectionHighlight()
     {
@@ -133,3 +140,4 @@ export default class domManipulator
         this.#taskDomManager.initializeTaskRemover();
     }
 }
+export let projectHandler = new domManipulator(runner,storage);
